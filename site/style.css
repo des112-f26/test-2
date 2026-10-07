@@ -1,11 +1,11 @@
 :root {
-  --bg: #fafafa;
+  --bg: red;
   --fg: #111;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111;
+    --bg: red;
     --fg: #eee;
   }
 }
