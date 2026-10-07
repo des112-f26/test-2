@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather</title>
+  <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+  <main class="phone">
+
+    <!-- 1. Current conditions at the top -->
+    <header class="current">
+      <h1 class="city">San Francisco</h1>
+      <p class="temp">68°</p>
+      <p class="condition">Mostly Sunny</p>
+      <p class="high-low">H:72° L:56°</p>
+    </header>
+
+    <!-- 2. Hourly forecast card -->
+    <section class="card">
+      <p class="card-title">Sunny conditions will continue all day.</p>
+
+      <ul class="hourly">
+        <!-- data-temp and data-condition hold the info JavaScript shows when you tap -->
+        <li><button class="hour selected" data-temp="68" data-condition="Mostly Sunny"><span>Now</span><span class="icon">☀️</span><span>68°</span></button></li>
+        <li><button class="hour" data-temp="70" data-condition="Sunny"><span>1PM</span><span class="icon">☀️</span><span>70°</span></button></li>
+        <li><button class="hour" data-temp="71" data-condition="Sunny"><span>2PM</span><span class="icon">☀️</span><span>71°</span></button></li>
+        <li><button class="hour" data-temp="72" data-condition="Mostly Sunny"><span>3PM</span><span class="icon">🌤️</span><span>72°</span></button></li>
+        <li><button class="hour" data-temp="70" data-condition="Partly Cloudy"><span>4PM</span><span class="icon">⛅</span><span>70°</span></button></li>
+        <li><button class="hour" data-temp="67" data-condition="Partly Cloudy"><span>5PM</span><span class="icon">⛅</span><span>67°</span></button></li>
+        <li><button class="hour" data-temp="64" data-condition="Mostly Cloudy"><span>6PM</span><span class="icon">🌥️</span><span>64°</span></button></li>
+        <li><button class="hour" data-temp="61" data-condition="Clear"><span>7PM</span><span class="icon">🌙</span><span>61°</span></button></li>
+      </ul>
+    </section>
+
+    <!-- 3. 10-day forecast card: your turn! -->
+
+  </main>
+
+  <script src="weather.js"></script>
+</body>
+</html>

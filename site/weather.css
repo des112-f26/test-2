@@ -1,0 +1,117 @@
+/* Sky-blue gradient behind everything, like a clear day */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #3a7bd5, #6fb1fc);
+  color: white;
+  font-family: -apple-system, system-ui, sans-serif;
+}
+
+/* Keep the content phone-width, centered on big screens */
+.phone {
+  max-width: 24rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+/* ---------- Current conditions ---------- */
+
+.current {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Remove the browser's default spacing so we control it */
+.current p,
+.current h1 {
+  margin: 0;
+}
+
+.city {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.temp {
+  font-size: 6rem;
+  font-weight: 200;   /* thin numbers are a big part of the iOS look */
+  line-height: 1;
+  margin-left: 1.5rem; /* nudges it so the number, not the °, looks centered */
+}
+
+.condition,
+.high-low {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* ---------- Cards ---------- */
+
+/* See-through "frosted glass" panel */
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.9rem;
+}
+
+/* ---------- Hourly forecast ---------- */
+
+.hourly {
+  list-style: none;      /* no bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex;         /* put the hours side by side */
+  gap: 1.5rem;
+  overflow-x: auto;      /* swipe/scroll sideways when they don't fit */
+}
+
+/* Each hour is a button that stacks time, icon, temperature vertically */
+.hour {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.4rem;
+  font: inherit;
+  font-weight: 500;
+  color: inherit;
+  background: transparent;  /* hide the browser's default button look */
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* A faint pill shows which hour is picked */
+.hour.selected {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Shrink slightly while pressed, so a tap feels physical */
+.hour:active {
+  transform: scale(0.92);
+}
+
+/* The header text fades out and back in when it changes */
+.temp,
+.condition {
+  transition: opacity 0.15s;
+}
+
+.fading {
+  opacity: 0;
+}
+
+.hourly .icon {
+  font-size: 1.5rem;
+}
