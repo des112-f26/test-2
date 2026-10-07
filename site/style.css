@@ -1,13 +1,7 @@
 :root {
-  --bg: red;
+  --bg: orange;
   --fg: #111;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: red;
-    --fg: #eee;
-  }
+  --accent: #3b5bdb;
 }
 
 body {
@@ -21,4 +15,87 @@ main {
   max-width: 40rem;
   margin: 4rem auto;
   padding: 0 1rem;
+}
+
+/* ---------- Button gallery ---------- */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Shared look for every bouncy button */
+.bouncy {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+/* Outline style: same animations, different look */
+.bouncy.outline {
+  background: transparent;
+  color: var(--fg);
+  border: 2px solid var(--fg);
+  border-radius: 6px;
+}
+
+/* JavaScript adds the "is-bouncing" class on click.
+   Each variant below decides which animation that class plays. */
+.bouncy.is-bouncing { animation-duration: 0.6s; animation-timing-function: ease-out; }
+
+.bounce.is-bouncing { animation-name: bounce; }
+.squish.is-bouncing { animation-name: squish; }
+.jelly.is-bouncing  { animation-name: jelly; animation-duration: 0.8s; }
+.pop.is-bouncing    { animation-name: pop; animation-duration: 0.35s; }
+.spring.is-bouncing { animation-name: spring; animation-duration: 0.9s; }
+
+/* 1. Bounce: jump up, then land */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  40%      { transform: translateY(-16px); }
+  70%      { transform: translateY(0); }
+  85%      { transform: translateY(-5px); }
+}
+
+/* 2. Squish: press down flat, then spring back */
+@keyframes squish {
+  0%, 100% { transform: scale(1, 1); }
+  30%      { transform: scale(1.15, 0.8); }
+  60%      { transform: scale(0.95, 1.08); }
+}
+
+/* 3. Jelly: wobble back and forth, getting smaller each time */
+@keyframes jelly {
+  0%, 100% { transform: scale(1, 1); }
+  25%      { transform: scale(0.9, 1.1); }
+  50%      { transform: scale(1.1, 0.9); }
+  75%      { transform: scale(0.97, 1.03); }
+}
+
+/* 4. Pop: quickly grow a little, then settle */
+@keyframes pop {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.2); }
+}
+
+/* 5. Spring: several bounces that get smaller, like a dropped ball */
+@keyframes spring {
+  0%, 100% { transform: translateY(0); }
+  20%      { transform: translateY(-20px); }
+  40%      { transform: translateY(0); }
+  55%      { transform: translateY(-10px); }
+  70%      { transform: translateY(0); }
+  82%      { transform: translateY(-4px); }
+}
+
+/* Respect people who have asked their computer for less motion */
+@media (prefers-reduced-motion: reduce) {
+  .bouncy.is-bouncing { animation: none; }
 }
